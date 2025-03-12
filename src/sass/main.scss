@@ -1,0 +1,27 @@
+// base settings
+@import "./base.scss";
+
+// variables
+@import "./utils/variable.scss";
+
+
+/* ------------------------------- Pages Start ------------------------------ */
+
+
+// home page
+@import "./pages/home.scss";
+@import "./pages/class.scss";
+@import "./pages/trainer.scss";
+
+
+
+
+//components
+@import "./components/header.scss";
+@import "./components/classes.scss";
+@import "./components/schedule.scss";
+@import "./components/client.scss";
+@import "./components/trainers.scss";
+@import "./components/pricing.scss";
+@import "./components/posts.scss";
+@import "./components/footer.scss";

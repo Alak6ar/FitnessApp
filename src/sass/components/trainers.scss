@@ -1,0 +1,146 @@
+.trainers {
+  background-image: url("https://radiustheme.com/demo/wordpress/gymedge/wp-content/uploads/2016/10/trainer-bag.jpg");
+  height: 100vh;
+  background-position: center;
+  padding: 100px 15px 50px;
+  margin: 80px 0 0 0;
+
+  .trainers-up {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    h1 {
+      margin-bottom: 90px !important;
+      color: #111111;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    .line {
+      border-bottom: 2px solid #de1c1c;
+      width: 60%;
+      margin-top: 15px;
+    }
+  }
+  .vc-item-wrap {
+    position: relative;
+    .vc-item {
+      text-align: center;
+      @media (max-width: 991px) {
+        width: 50% !important;
+      }
+      &:hover .vc-overly {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+      .trainer-img {
+        width: 262px;
+        height: 335px;
+        @media (max-width: 991px) {
+          // width: 100% ;
+          // height: 100%;
+        }
+        img {
+          display: block;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+      .vc-overly {
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        opacity: 0;
+        // transform: translateX(-100%);
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        transform-style: preserve-3d;
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          right: 0;
+          text-align: center;
+          top: 45%;
+          z-index: 99;
+          li {
+            display: inline-block;
+            margin-bottom: 10px;
+            margin-right: 5px;
+
+            a {
+              border: 2px solid #fb5b21;
+              border-radius: 50%;
+              display: block;
+              height: 40px;
+              line-height: 37px;
+              text-align: center;
+              width: 40px;
+              border-color: #fb5b21;
+              padding: 8px;
+              svg {
+                color: #ffffff;
+                font-size: 20px;
+              }
+              &:hover {
+                background-color: #fb5b21;
+              }
+            }
+          }
+        }
+      }
+      .vc-team-meta {
+        background-color: #fb5b21;
+        border-radius: 30px;
+        color: #ffffff;
+        left: 0;
+        bottom: -40px;
+        margin: 0 auto;
+        padding: 15px 0;
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+
+        width: 83%;
+        @media (max-width: 991px) {
+          width: 70%;
+        }
+
+        h3 {
+          margin-bottom: 5px;
+          font-size: 20px;
+          line-height: 26px;
+          @media (max-width: 991px) {
+            font-size: 16px;
+          }
+
+          a {
+            color: #ffffff;
+          }
+        }
+        div {
+          font-size: 14px;
+          @media (max-width: 991px) {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  .slick-slide > div {
+    height: 500px;
+    margin-right: 30px;
+  }
+  .slick-slide {
+  
+  }
+}
+
+.slick-arrow {
+  display: none !important;
+}

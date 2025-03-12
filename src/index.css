@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input {
+  @apply outline-none;
+}
+
+@layer components {
+    .input-field {
+      @apply transition-shadow text-base outline-none pl-3 h-10 border-gray-400 ring-1 ring-gray-400 focus:ring-blue-400 w-full h-12 rounded-lg pl-6;
+    }
+}
