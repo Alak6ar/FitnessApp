@@ -8,7 +8,7 @@ import Footer from "../Footer";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useAddCartMutation, useProductQuery } from "../../services/productApi";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addBasket, removeBasket, selectBasket } from "../../features/basket/basketSlice";
 
@@ -22,6 +22,7 @@ const ProductDetails = () => {
 
   const [addCart] = useAddCartMutation();
 
+  const navigate = useNavigate();
   console.log(basket);
   
 
@@ -58,6 +59,21 @@ const ProductDetails = () => {
       imageUrl: data.imageUrl,
     }))
   }
+
+  const buyNowHandler = () => {
+    dispatch(addBasket({
+      id: data.id,
+      name: data.name,
+      description: data.description,
+      price: data.price,
+      discount: data.discount,
+      discountPrice: data.discountPrice,
+      imageUrl: data.imageUrl,
+      amount: 1
+    }))
+      navigate('/shopping-cart')
+  }
+  
 
   return (
     <div className="flex flex-col h-full">
@@ -132,9 +148,9 @@ const ProductDetails = () => {
                   </button>
                 </div>
                 <div>
-                  <Link className="bg-orange-600 text-white w-36 h-10 flex justify-center items-center rounded-md inline-block" to="/shopping-cart">
+                  <button type='button' onClick={buyNowHandler} className="bg-orange-600 text-white w-36 h-10 flex justify-center items-center rounded-md inline-block">
                     Buy Now
-                  </Link>
+                  </button>
                 </div>
               </div>
 
@@ -155,6 +171,6 @@ const ProductDetails = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductDetails;
