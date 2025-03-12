@@ -32,6 +32,8 @@ const Register = () => {
         dispatch(setVerifyEmail(values.Email))
         navigate('/auth/verifyEmail')
     } catch (err) {
+      console.log(err);
+      
       if (!err) {
         setError("Server xətası.");
       }

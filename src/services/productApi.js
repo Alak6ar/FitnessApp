@@ -86,6 +86,15 @@ export const productApi = createApi({
             query: () => 'Plan/withoutTrainer'
         }),
 
+        trainers: builder.query({
+            query: () => 'Trainer'
+        }),
+        
+        trainer: builder.query({
+            query: (id) => `Trainer/${id}`,
+        
+        }),
+
     })
 })
 
@@ -101,5 +110,7 @@ export const {
     usePlanWithTrainerQuery,
     usePlanWithoutTrainerQuery,
     useSubscribeMutation,
-    usePlanSuccessQuery
+    usePlanSuccessQuery,
+    useTrainersQuery,
+    useTrainerQuery
 } = productApi;

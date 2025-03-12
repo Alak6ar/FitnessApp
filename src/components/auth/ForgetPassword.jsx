@@ -18,10 +18,11 @@ const ForgetPassword = () => {
 
   const submit = async (values) => {
     try {
-      const regRes = await forgetPassword(values).unwrap();
-      console.log(regRes);
-      if (!regRes.success) throw new Error("Error");
+      const res = await forgetPassword(values).unwrap();
+      console.log(res);
     } catch (err) {
+      console.log(err);
+      
       if (!err) {
         setError("Server xətası.");
       }

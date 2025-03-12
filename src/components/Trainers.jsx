@@ -4,26 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext"; // AuthContext'i içe aktar
+import { useTrainersQuery } from "../services/productApi";
 
 const Trainers = () => {
   const [trainers, setTrainers] = useState([]);
   const navigate = useNavigate();
   const { token } = useAuth(); // AuthContext'ten token'ı al
-
-  useEffect(() => {
-    const fetchTrainers = async () => {
-      try {
-        const response = await axios.get("http://alihuseyn1-001-site1.otempurl.com/api/Trainer");
-        setTrainers(response.data);
-      } catch (error) {
-        console.error("Eğitmen verileri alınamadı:", error);
-      }
-    };
-
-    if (token) { // Token varsa isteği yap
-      fetchTrainers();
-    }
-  }, [token]); // Token değişirse yeniden çağır
+  const {data} = useTrainersQuery();
+  console.log(data);
+  
+  console.log(trainers);
+  
+ // Token değişirse yeniden çağır
 
   const settings = {
     dots: false,
@@ -46,12 +38,12 @@ const Trainers = () => {
           <div className="line"></div>
         </div>
         <Slider {...settings}>
-          {trainers.map((trainer) => (
-            <div key={trainer.id} className="trainer-card">
+          {data?.map((trainer) => (
+            <div key={trainer?.id} className="trainer-card">
               <div className="vc-item-wrap">
                 <div className="vc-item">
                   <div className="trainer-img">
-                    <img src={trainer.imageUrl} alt={trainer.firstName} />
+                    <img src={trainer?.imageUrl} alt={trainer?.firstName} />
                   </div>
                   <div className="vc-overly">
                     <ul>
@@ -61,9 +53,9 @@ const Trainers = () => {
                       <li><Link><FaSnapchat /></Link></li>
                     </ul>
                   </div>
-                  <div className="vc-team-meta" onClick={() => navigate(`/trainer/${trainer.id}`)}>
-                    <h3>{trainer.firstName} {trainer.lastName}</h3>
-                    <div>{trainer.positionName}</div>
+                  <div className="vc-team-meta" onClick={() => navigate(`/trainer/${trainer?.id}`)}>
+                    <h3>{trainer?.firstName} {trainer?.lastName}</h3>
+                    <div>{trainer?.positionName}</div>
                   </div>
                 </div>
               </div>

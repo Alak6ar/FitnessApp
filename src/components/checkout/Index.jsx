@@ -24,8 +24,9 @@ const Index = () => {
 
   const submitBtnData = {
     text: "Place order",
-    loadingText: "Signing in",
+    loadingText: "Placing order",
     type: "submit",
+    isLoading: isLoading
   };
 
   const submit = async (values) => {
